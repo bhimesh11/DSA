@@ -1,4 +1,4 @@
-package LinkedList;
+package LinkedList.singleLinkedList;
 
 public class DeleteNode {
 
