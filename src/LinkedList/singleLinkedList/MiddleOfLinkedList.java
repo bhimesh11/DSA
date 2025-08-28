@@ -6,10 +6,10 @@ public class MiddleOfLinkedList {
 		int[] arr = { 1, 2, 3, 4, 5 };
 		Node head = convertToLinkedList(arr);
 		printLL(head);
-		//Node middleNode = findMiddle(head);
+		// Node middleNode = findMiddle(head);
 		Node middleNode = findMiddleOptimal(head);
 		System.out.println();
-	//	System.out.println(middleNode.data);
+		// System.out.println(middleNode.data);
 		System.out.println(middleNode.data);
 	}
 
@@ -17,9 +17,8 @@ public class MiddleOfLinkedList {
 
 		Node slow = head;
 		Node fast = head;
-		
-		while(fast!=null && fast.next!=null)
-		{
+
+		while (fast != null && fast.next != null) {
 			slow = slow.next;
 			fast = fast.next.next;
 		}
