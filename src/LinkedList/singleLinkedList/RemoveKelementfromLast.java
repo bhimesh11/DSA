@@ -12,7 +12,7 @@ public class RemoveKelementfromLast {
 		head.next.next.next.next = new Node(arr[4]);
 //		head = DeleteNthNodefromEnd(head, N);
 		head = deleteNodeFromEndOptimal(head, N);
-		printLL(head);
+ 		printLL(head);
 		
 	}
 
