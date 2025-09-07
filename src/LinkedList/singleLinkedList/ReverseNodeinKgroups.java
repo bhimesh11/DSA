@@ -24,56 +24,35 @@ public class ReverseNodeinKgroups {
 	}
 	
 	   private static Node kReverse(Node head, int i) {
-		Node temp = head;
-		Node prevGroupTail= null;
-		Node nextNode = null;
-		while(temp!=null)
-		{
-			//Generate last node of k group
-			Node knode = getKNode(temp , i);
-			  // If the Kth node is NULL
-            // (not a complete group)
-			if(knode==null)
-			{
-				// If there was a previous group,
-                // link the last node to the current node
-				if(prevGroupTail!=null)
-				{
-					prevGroupTail.next = temp;
-				}
-				//exit the loop
-				break;
-			}
-			 // Store the next node
-            // after the Kth node
-			Node nextGroupHead = knode.next;
-			  // Disconnect the Kth node
-            // to prepare for reversal
-			knode.next=null;
-			// Reverse the nodes from
-            // temp to the Kth node
-			Node newGroupHead = reverseNodes(temp);
-			 // Adjust the head if the reversal
-            // starts from the head
-			if(prevGroupTail==null)
-			{
-				head = newGroupHead;
-			}else {
-				// Link the last node of the previous
-                // group to the reversed group
-				prevGroupTail.next = newGroupHead;
-			}
-			 // Update the pointer to the
-            // last node of the previous group
-			prevGroupTail = temp;
-			// Move to the next group
-			temp = nextGroupHead;
-		}
-		// Return the head of the
-        // modified linked list
-		return head;
-		
-	}
+		   Node temp = head;
+		   Node prevNodeTail = null;
+		   while(temp!=null)
+		   {
+			   Node knode = getKNode(temp, i);
+			   if(knode==null)
+			   {
+				   if(prevNodeTail!=null)
+				   {
+					   prevNodeTail.next = temp;
+				   }
+				   break;
+			   }
+			   
+			   Node nextGroupHead = knode.next;
+			   knode.next = null;
+			   Node newGroupHead = reverseNodes(temp);
+			   
+			   if(prevNodeTail==null)
+			   {
+				   head = newGroupHead;
+			   }else {
+				   prevNodeTail.next=newGroupHead;
+			   }
+			   prevNodeTail = temp;
+			   temp = nextGroupHead ;
+		   }
+		   return head;
+	   }
 
 	private static Node reverseNodes(Node head) {
 		Node temp = head;

@@ -4,22 +4,31 @@ import java.util.Random;
 
 import BasicMath.CountDigits;
 
+
 class Node {
-	int data;
-	Node next;
-	public Node(int data, Node next) {
-		super();
-		this.data = data;
-		this.next = next;
-	}
-	
-	public Node(int data) {
-		super();
-		this.data = data;
-		this.next = null;
-	}
-	
-	
+    int data;
+    Node next;
+    Node child;
+
+    // Constructors to initialize the
+    // data, next, and child pointers
+    Node() {
+        this.data = 0;
+        this.next = null;
+        this.child = null;
+    }
+
+    Node(int x) {
+        this.data = x;
+        this.next = null;
+        this.child = null;
+    }
+
+    Node(int x, Node nextNode, Node childNode) {
+        this.data = x;
+        this.next = nextNode;
+        this.child = childNode;
+    }
 }
 
 public class LinkedListBasicProblems {
