@@ -14,13 +14,13 @@ public class FlattenLinkedList {
         // Merge the lists based on data values
         while (list1 != null && list2 != null) {
             if (list1.data < list2.data) {
-                res.child = list1;
+                res.random = list1;
                 res = list1;
-                list1 = list1.child;
+                list1 = list1.random;
             } else {
-                res.child = list2;
+                res.random = list2;
                 res = list2;
-                list2 = list2.child;
+                list2 = list2.random;
             }
             res.next = null;
         }
@@ -28,18 +28,18 @@ public class FlattenLinkedList {
         // Connect the remaining
         // elements if any
         if (list1 != null) {
-            res.child = list1;
+            res.random = list1;
         } else {
-            res.child = list2;
+            res.random = list2;
         }
 
         // Break the last node's
         // link to prevent cycles
-        if (dummyNode.child != null) {
-            dummyNode.child.next = null;
+        if (dummyNode.random != null) {
+            dummyNode.random.next = null;
         }
 
-        return dummyNode.child;
+        return dummyNode.random;
     }
 
     // Flattens a linked list with child pointers
@@ -62,7 +62,7 @@ public class FlattenLinkedList {
     public static void printLinkedList(Node head) {
         while (head != null) {
             System.out.print(head.data + " ");
-            head = head.child;
+            head = head.random;
         }
         System.out.println();
     }
@@ -75,9 +75,9 @@ public class FlattenLinkedList {
 
             // If child exists, recursively
             // print it with indentation
-            if (head.child != null) {
+            if (head.random != null) {
                 System.out.print(" -> ");
-                printOriginalLinkedList(head.child, depth + 1);
+                printOriginalLinkedList(head.random, depth + 1);
             }
 
             // Add vertical bars
@@ -95,17 +95,17 @@ public class FlattenLinkedList {
     public static void main(String[] args) {
         // Create a linked list with child pointers
         Node head = new Node(5);
-        head.child = new Node(14);
+        head.random = new Node(14);
 
         head.next = new Node(10);
-        head.next.child = new Node(4);
+        head.next.random = new Node(4);
 
         head.next.next = new Node(12);
-        head.next.next.child = new Node(20);
-        head.next.next.child.child = new Node(13);
+        head.next.next.random = new Node(20);
+        head.next.next.random.random = new Node(13);
 
         head.next.next.next = new Node(7);
-        head.next.next.next.child = new Node(17);
+        head.next.next.next.random = new Node(17);
 
         // Print the original
         // linked list structure

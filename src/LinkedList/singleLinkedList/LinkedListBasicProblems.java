@@ -8,26 +8,31 @@ import BasicMath.CountDigits;
 class Node {
     int data;
     Node next;
-    Node child;
+    Node random;
 
     // Constructors to initialize the
     // data, next, and child pointers
     Node() {
         this.data = 0;
         this.next = null;
-        this.child = null;
+        this.random = null;
     }
 
     Node(int x) {
         this.data = x;
         this.next = null;
-        this.child = null;
+        this.random = null;
     }
 
     Node(int x, Node nextNode, Node childNode) {
         this.data = x;
         this.next = nextNode;
-        this.child = childNode;
+        this.random = childNode;
+    }
+    Node(int x, Node nextNode) {
+        this.data = x;
+        this.next = nextNode;
+        this.random = null;
     }
 }
 
