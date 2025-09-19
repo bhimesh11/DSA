@@ -41,6 +41,6 @@ public class combinationsum {
 			findCombination(i, arr, target-arr[i], ans, arrayList);
 			arrayList.remove(arrayList.size()-1);
 		}
-		findCombination(i+1, arr, target, ans, arrayList);
+		findCombination(i+1 , arr, target, ans, arrayList);
 	}
 }
